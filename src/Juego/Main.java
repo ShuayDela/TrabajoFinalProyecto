@@ -18,9 +18,9 @@ public class Main {
     public static void Menu (Scanner scanner, Mapa mapa){ //Menu donde se desarrolla el juego.
         boolean finalizarMenu = false;
         do {
-            int soles = 0;
-            int turno = 1;
-            System.out.println("Tienes " + soles + " soles disponibles");
+            int soles = mapa.getSoles();
+            int turno = mapa.getTurno();
+            System.out.println("Tienes " + soles + " soles disponibles // turno : " + turno);
             System.out.println("¿Que quieres hacer?");
             System.out.println("1- Plantar una planta");
             System.out.println("2- Quitar una planta");
@@ -57,6 +57,7 @@ public class Main {
             }
         }while (finalizarMenu);
     }
+
 
 }
 

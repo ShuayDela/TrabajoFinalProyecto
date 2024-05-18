@@ -7,9 +7,7 @@ public class Lanzaguisantes extends Plantas {
         logo = "L|";
         soles = 100;
         hp = 5;
-        daño = 2;
-    }
-    public void imprimir (){
-        System.out.println("Lanzaguisantes (100 soles)");
+        daño = 1;
+        nombre = "Lanzaguisantes";
     }
 }

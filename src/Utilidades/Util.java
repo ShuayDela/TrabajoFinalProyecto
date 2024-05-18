@@ -32,7 +32,7 @@ public class Util {
     }
     public static int Leernumerocolumna (Scanner scanner){
         System.out.println("Elige la columna que quieras: ");
-        int columna = Leernumero(scanner,1,10);
+        int columna = Leernumero(scanner,1,9);
         return columna - 1;
     }
     public static int obtenerEnteroAleatorio(int min, int max) {

@@ -5,6 +5,8 @@ import Zombies.Zombies;
 import java.util.ArrayList;
 
 public abstract class Plantas {
+    protected String nombre;
+    protected boolean vivo;
     protected String logo;
     protected int fila;
     protected int columna;
@@ -15,6 +17,7 @@ public abstract class Plantas {
     public Plantas (int fila,int columna){
         this.fila = fila;
         this.columna = columna;
+        vivo = true;
     }
     public int getFila() {
         return fila;
@@ -69,6 +72,17 @@ public abstract class Plantas {
     public void setLogo(String logo) {
         this.logo = logo;
     }
-    abstract void imprimir ();
+
+    public boolean isVivo() {
+        return vivo;
+    }
+
+    public void setVivo(boolean vivo) {
+        this.vivo = vivo;
+    }
+
+    public void imprimir (){
+        System.out.println(nombre + "(" + soles + " soles )");
+    }
 }
 

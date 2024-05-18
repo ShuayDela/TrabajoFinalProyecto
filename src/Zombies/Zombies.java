@@ -1,4 +1,6 @@
 package Zombies;
+import Plantas.*;
+import java.util.ArrayList;
 
 public abstract class Zombies {
     protected String logo;
@@ -13,8 +15,13 @@ public abstract class Zombies {
         this.columna = columna;
         vivo = true;
     }
-    public void atacar (){
-
+    public void atacar (ArrayList<Plantas> plantas){
+        for (int i = 0; i < plantas.size(); i++){
+            Plantas actual = plantas.get(i);
+            if (actual.getFila() == this.fila && actual.getColumna() == (this.columna-1) && actual.isVivo()){
+                actual.setHp(actual.getHp() - this.daño);
+            }
+        }
     }
     abstract void mover();
 
