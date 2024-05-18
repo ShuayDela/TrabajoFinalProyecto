@@ -13,11 +13,21 @@ public abstract class Plantas {
     protected int soles;
     protected int hp;
     protected int daño;
+    protected String logomuerto;
 
-    public Plantas (int fila,int columna){
+    public String getLogomuerto() {
+        return logomuerto;
+    }
+
+    public void setLogomuerto(String logomuerto) {
+        this.logomuerto = logomuerto;
+    }
+
+    public Plantas (int fila, int columna){
         this.fila = fila;
         this.columna = columna;
         vivo = true;
+        logomuerto = "❎";
     }
     public int getFila() {
         return fila;

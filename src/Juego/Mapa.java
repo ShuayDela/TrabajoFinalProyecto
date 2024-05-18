@@ -9,30 +9,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Mapa {
-    private int soles;
-    private int filas;
-    private int columnas;
-    public String [][] tablamapa;
-    private ArrayList<Plantas> plantas = new ArrayList<>();
-    private ArrayList<Zombies> zombies = new ArrayList<>();
-    private int turno;
+    public int soles;
+    public int filas;
+    public int columnas;
+    public ArrayList<Plantas> plantas = new ArrayList<>();
+    public ArrayList<Zombies> zombies = new ArrayList<>();
+    public int turno;
 
 
     public Mapa (){
         filas = 5;
         columnas = 13;
-        this.tablamapa = new String[getFilas()][getColumnas()];
         turno = 1;
         soles = 0;
-        inicializarMapa();
-    }
-    public String [][] inicializarMapa(){
-        for (int i = 0; i < getFilas(); i++) {
-            for (int j = 0; j < getColumnas(); j++) {
-                tablamapa[i][j] = "-";
-            }
-        }
-        return tablamapa;
+
     }
     public void imprimirMapa (){
         System.out.println("═══════════════════════════");
@@ -47,7 +37,7 @@ public class Mapa {
                                 System.out.print(actual.getLogo());
                             }
                             if (!actual.isVivo()){
-                                System.out.print("~");
+                                System.out.println(actual.getLogomuerto());
                             }
                             esPlanta = true;
                         }
@@ -62,7 +52,7 @@ public class Mapa {
                                 System.out.print(actual.getLogo());
                             }
                             if (!actual.getVivo()){
-                                System.out.print("X");
+                                System.out.println(actual.getLogomuerto());
                             }
                             esZombi = true;
                         }
@@ -77,14 +67,12 @@ public class Mapa {
             System.out.println("═══════════════════════════");
         }
     }
-
     public void quitarPlanta(int fila , int columna) { //funcion para quitar una planta
     boolean encontrado = false;
         for (int i = 0; i< plantas.size() && !encontrado; i++){
         Plantas planta = plantas.get(i);
             if (planta.getFila() == fila && planta.getColumna() == columna ){
                 plantas.remove(i);
-                tablamapa[fila][columna] = "-";
                 encontrado = true;
             }
         }
@@ -146,10 +134,10 @@ public class Mapa {
     public void revisarZombies (){ // funcion principal que revisa si los zombies estan vivos o no
         for (int i = 0; i < zombies.size(); i++){
             Zombies actual = zombies.get(i);
-                if (actual.getHp() == 0){
+                if (actual.getHp() <= 0){
                     actual.setVivo(false);
                 }
-                if (actual.getHp() <= 0){
+                if (!actual.isVivo()){
                     zombies.remove(actual);
                 }
             }
@@ -157,10 +145,10 @@ public class Mapa {
     public void revisarPlantas(){ //funcion principal que revisa si las plantas estan vivas o no
         for (int i = 0; i< plantas.size(); i++){
             Plantas actual = plantas.get(i);
-            if (actual.getHp() == 0){
-                actual.setVivo(false);
-            }
             if (actual.getHp() <= 0){
+                actual.setLogo("❎");
+            }
+            if (!actual.isVivo()){
                 plantas.remove(actual);
             }
         }
@@ -180,7 +168,25 @@ public class Mapa {
         this.soles = soles + solesturno + solesturnogirasol;
     }
     public void añadirPlanta (Plantas nuevo){
-        plantas.add(nuevo);
+        boolean existe = false;
+        for (int i = 0; i < plantas.size() && !existe; i++){
+            Plantas actualplanta = plantas.get(i);
+            if (actualplanta.getFila() == nuevo.getFila() && actualplanta.getColumna() == nuevo.getColumna()){
+                existe = true;
+            }
+        }
+        for (int i = 0; i< zombies.size() && !existe; i++){
+            Zombies actualzombie = zombies.get(i);
+            if(actualzombie.getFila() == nuevo.getFila() && actualzombie.getColumna() == nuevo.getColumna()){
+                existe = true;
+            }
+        }
+        if (existe){
+            System.out.println("No se puede añadir ya que esa posicion esta ocupada");
+        }
+        if (!existe){
+            plantas.add(nuevo);
+        }
     } //funcion basica que añade las plantas
 
 

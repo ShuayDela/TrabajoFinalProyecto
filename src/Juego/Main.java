@@ -1,8 +1,7 @@
 package Juego;
 import Plantas.*;
-import Plantas.Plantas;
 import Utilidades.Util;
-
+import Juego.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Main {
@@ -31,10 +30,13 @@ public class Main {
                 System.out.println("1- Lanzaguisantes (100 soles)");
                 System.out.println("2- Girasol (50 soles)");
                 int opcion2 = Util.Leernumero(scanner,1,2);
-                System.out.println();
                 if (opcion2 ==1  || opcion2 == 2 ){
-                    int fila = Util.LeernumeroFila(scanner);
-                    int columna = Util.Leernumerocolumna(scanner);
+                    int [] filacolumna = Util.LeerNumeroFilaColumna(scanner);
+                    if (filacolumna == null){
+                        continue;
+                    }
+                    int fila = filacolumna[0];
+                    int columna = filacolumna[1];
                     if (opcion2 == 1){
                         Plantas lanza = new Lanzaguisantes(fila,columna);
                         mapa.añadirPlanta(lanza);
@@ -45,9 +47,12 @@ public class Main {
                 }
             }
             if(opcion == 2){
-                System.out.println("Elige la posicion de la planta que quieras quitar: ");
-                int fila = Util.LeernumeroFila(scanner);
-                int columna = Util.Leernumerocolumna(scanner);
+                int [] filacolumna = Util.LeerNumeroFilaColumna(scanner);
+                if (filacolumna == null){
+                    continue;
+                }
+                int fila = filacolumna[0];
+                int columna = filacolumna[1];
                 mapa.quitarPlanta(fila,columna);
             }
             if (opcion == 3){
@@ -60,4 +65,5 @@ public class Main {
 
 
 }
+
 

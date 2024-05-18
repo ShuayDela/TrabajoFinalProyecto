@@ -4,7 +4,7 @@ public class Lanzaguisantes extends Plantas {
 
     public Lanzaguisantes(int fila,int columna){
         super (fila,columna);
-        logo = "L|";
+        logo = "🌱";
         soles = 100;
         hp = 5;
         daño = 1;

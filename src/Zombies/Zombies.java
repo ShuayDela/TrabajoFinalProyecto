@@ -7,13 +7,23 @@ public abstract class Zombies {
     protected boolean vivo;
     protected int fila;
     protected int columna;
-    public int hp;
+    protected int hp;
     protected int daño;
+    protected String logomuerto;
+
+    public String getLogomuerto() {
+        return logomuerto;
+    }
+
+    public void setLogomuerto(String logomuerto) {
+        this.logomuerto = logomuerto;
+    }
 
     public Zombies (int fila, int columna){
         this.fila = fila;
         this.columna = columna;
         vivo = true;
+        logomuerto = "❌";
     }
     public void atacar (ArrayList<Plantas> plantas){
         for (int i = 0; i < plantas.size(); i++){
