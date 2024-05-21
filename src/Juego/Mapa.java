@@ -147,6 +147,7 @@ public class Mapa {
             Plantas actual = plantas.get(i);
             if (actual.getHp() <= 0){
                 actual.setLogo("❎");
+                actual.setVivo(false);
             }
             if (!actual.isVivo()){
                 plantas.remove(actual);
@@ -220,6 +221,54 @@ public class Mapa {
 
     public void setTurno(int turno) {
         this.turno = turno;
+    }
+    public void Menu (Scanner scanner){ //Menu donde se desarrolla el juego.
+        boolean finalizarMenu = false;
+        do {
+            int soles = this.soles;
+            int turno = this.turno;
+            System.out.println("Tienes " + soles + " soles disponibles // turno : " + turno);
+            System.out.println("¿Que quieres hacer?");
+            System.out.println("1- Plantar una planta");
+            System.out.println("2- Quitar una planta");
+            System.out.println("3- Pasar turno");
+            int opcion = Util.Leernumero(scanner , 1,3);
+            if (opcion == 1){
+                System.out.println("¿Que planta quieres plantar?");
+                System.out.println("1- Lanzaguisantes (100 soles)");
+                System.out.println("2- Girasol (50 soles)");
+                int opcion2 = Util.Leernumero(scanner,1,2);
+                if (opcion2 ==1  || opcion2 == 2 ){
+                    int [] filacolumna = Util.LeerNumeroFilaColumna(scanner);
+                    if (filacolumna == null){
+                        continue;
+                    }
+                    int fila = filacolumna[0];
+                    int columna = filacolumna[1];
+                    if (opcion2 == 1){
+                        Plantas lanza = new Lanzaguisantes(fila,columna);
+                        añadirPlanta(lanza);
+                    } else if (opcion2 == 2) {
+                        Plantas girasol = new Girasol(fila,columna,turno);
+                        añadirPlanta(girasol);
+                    }
+                }
+            }
+            if(opcion == 2){
+                int [] filacolumna = Util.LeerNumeroFilaColumna(scanner);
+                if (filacolumna == null){
+                    continue;
+                }
+                int fila = filacolumna[0];
+                int columna = filacolumna[1];
+                quitarPlanta(fila,columna);
+            }
+            if (opcion == 3){
+                System.out.println("Has pasado de turno!");
+                pasarturno();
+                finalizarMenu = false;
+            }
+        }while (finalizarMenu);
     }
 }
 

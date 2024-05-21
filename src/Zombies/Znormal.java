@@ -7,7 +7,4 @@ public class Znormal extends Zombies {
         hp = 4;
         daño = 3;
     }
-    public void mover(){
-
-    }
 }

@@ -7,63 +7,61 @@ import java.util.Scanner;
 public class Main {
     public static void main (String [] args){
         Scanner teclado = new Scanner(System.in);
-        Mapa mapa = new Mapa();
         boolean finalizarjuego = false;
-        do {
-            mapa.imprimirMapa();
-            Menu(teclado, mapa);
-        } while (!finalizarjuego);
-    }
-    public static void Menu (Scanner scanner, Mapa mapa){ //Menu donde se desarrolla el juego.
-        boolean finalizarMenu = false;
-        do {
-            int soles = mapa.getSoles();
-            int turno = mapa.getTurno();
-            System.out.println("Tienes " + soles + " soles disponibles // turno : " + turno);
+        System.out.println("¡ BIENVENIDO A PLANTS VS ZOMBIES !");
+        System.out.println("Iniciando menu");
+        System.out.println();
+        System.out.println();
+        do{
+            Mapa mapa = new Mapa();
             System.out.println("¿Que quieres hacer?");
-            System.out.println("1- Plantar una planta");
-            System.out.println("2- Quitar una planta");
-            System.out.println("3- Pasar turno");
-            int opcion = Util.Leernumero(scanner , 1,3);
-            if (opcion == 1){
-                System.out.println("¿Que planta quieres plantar?");
-                System.out.println("1- Lanzaguisantes (100 soles)");
-                System.out.println("2- Girasol (50 soles)");
-                int opcion2 = Util.Leernumero(scanner,1,2);
-                if (opcion2 ==1  || opcion2 == 2 ){
-                    int [] filacolumna = Util.LeerNumeroFilaColumna(scanner);
-                    if (filacolumna == null){
-                        continue;
-                    }
-                    int fila = filacolumna[0];
-                    int columna = filacolumna[1];
-                    if (opcion2 == 1){
-                        Plantas lanza = new Lanzaguisantes(fila,columna);
-                        mapa.añadirPlanta(lanza);
-                    } else if (opcion2 == 2) {
-                        Plantas girasol = new Girasol(fila,columna,turno);
-                        mapa.añadirPlanta(girasol);
-                    }
-                }
+            System.out.println("1-Jugar al juego");
+            System.out.println("2-Cargar un juego");
+            System.out.println("3-Cambiar de dificultad");
+            System.out.println("4-Manual");
+            System.out.println("5-Ver registro de puntos de juego");
+            int opcion = Util.Leernumero(teclado,1,5);
+            if (opcion == 1)
+            {
+                do {
+                    mapa.imprimirMapa();
+                    mapa.Menu(teclado);
+                } while (!finalizarjuego);
             }
-            if(opcion == 2){
-                int [] filacolumna = Util.LeerNumeroFilaColumna(scanner);
-                if (filacolumna == null){
-                    continue;
-                }
-                int fila = filacolumna[0];
-                int columna = filacolumna[1];
-                mapa.quitarPlanta(fila,columna);
+            if (opcion == 2){
+
             }
             if (opcion == 3){
-                System.out.println("Has pasado de turno!");
-                mapa.pasarturno();
-                finalizarMenu = false;
+
             }
-        }while (finalizarMenu);
+            if(opcion == 4){
+                System.out.println("1- Introcciones del juego");
+                System.out.println("2- Que hace cada planta/zombie");
+                int opcion4 = Util.Leernumero(teclado,1,2);
+                if (opcion4 == 1){
+                    System.out.println("Este es un juego Plantas vs Zombies basado en turnos por cada turno saldran zombies y se te ortorgara soles por cada turno");
+                    System.out.println("Para seleccionar una posicion de la planta que quieras plantas / quitar tendras que poner primero la fila y luego la columna de tal manera que seria 1,5 siendo 1 la fila y 5 la columna");
+                    System.out.println("Habran distintas dificultades que podras elegir antes de empezar el juego dependiendo de la dificultad incrementara el numero de zombies que hay que matar para ganar y aumentara la probabilidad de aparicion de zombies mas dificiles");
+                    System.out.println("A continuacion te mostrare las probabilidades y el numero de zombies por nivel");
+                    System.out.println("Facil || Numero : 50 || Probabilidades - Caracubo 10% - Caracono 10% - Zombie normal 80%");
+                    System.out.println("Medio || Numero : 100 || Probabilidades - Caracubo 33,33% - Caracono 33,33% - Zombie normal 33,33%");
+                    System.out.println("Dificil || Numero : 200 || Probabilidades - Caracubo 60% - Caracono 30% - Zombie normal 10%");
+                    System.out.println("Personalizado || Numero : El que quieras (si pones 0 es ilimitado) || Probabilidades - Lo que elijas");
+                    System.out.println("De momento esto es una demo de un desarrollador humilde y en progreso de mejorar sus habilidades (una buena nota alberto porfa t-t)");
+                }
+                if (opcion4 == 2){
+                    System.out.println("EL LANZAGUISTANTES");
+                    System.out.println("El Lanzaguisantes es la primera planta de ataque de Plants vs. Zombies. Su costo es de 100 soles y dispara un guisante cada turno infligiendo 1 de daño.");
+                    //Seguir describiendo a los zombies / plantas luego
+                }
+
+            }
+            if (opcion == 5){
+
+            }
+        }
+
     }
-
-
 }
 
 

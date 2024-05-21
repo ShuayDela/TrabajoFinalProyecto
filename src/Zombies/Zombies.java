@@ -33,7 +33,6 @@ public abstract class Zombies {
             }
         }
     }
-    abstract void mover();
 
     public int getFila() {
         return fila;

@@ -7,7 +7,7 @@ public class Girasol extends Plantas {
     public Girasol (int fila, int columna,int turnoPlantado){
         super (fila,columna);
         this.turnoPlantado = turnoPlantado;
-        hp = 1;
+        hp = 2;
         logo = "🌻";
         nombre = "Girasol";
     }
