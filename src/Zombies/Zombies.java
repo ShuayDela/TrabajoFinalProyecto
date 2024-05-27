@@ -8,7 +8,7 @@ public abstract class Zombies {
     protected int fila; // posicionamiento
     protected int columna; // posicionamiento
     protected int hp; // los puntos de vida del zombie
-    protected int daño; // el daño que hace el zombie
+    protected int danyo; // el daño que hace el zombie
     protected String logomuerto; // el simbolo del zombie cuando este muerto
     /**
      * Constructor de la clase Zombies
@@ -19,7 +19,7 @@ public abstract class Zombies {
         this.fila = fila;
         this.columna = columna;
         vivo = true;
-        logomuerto = "❌";
+        logomuerto = "X";
     }
     /**
      * Método que representa el ataque del zombie a las plantas
@@ -29,7 +29,7 @@ public abstract class Zombies {
         for (int i = 0; i < plantas.size(); i++){
             Plantas actual = plantas.get(i);
             if (actual.getFila() == this.fila && actual.getColumna() == (this.columna-1) && actual.isVivo()){ // si la planta esta en la misma fila y columna a la izquierda del zombie la ataca
-                actual.setHp(actual.getHp() - this.daño); // le baja la vida a dicha planta
+                actual.setHp(actual.getHp() - this.danyo); // le baja la vida a dicha planta
             }
         }
     }

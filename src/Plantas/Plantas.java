@@ -22,7 +22,7 @@ public abstract class Plantas {
         this.fila = fila;
         this.columna = columna;
         vivo = true;
-        logomuerto = "❎"; // el logo que aparecera si la planta esta muerta
+        logomuerto = "X"; // el logo que aparecera si la planta esta muerta
     }
     /**
      * Realiza un ataque a los zombies en el mapa

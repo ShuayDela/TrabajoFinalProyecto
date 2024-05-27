@@ -8,7 +8,7 @@ public class Nuez extends Plantas{
      */
     public Nuez(int fila,int columna){
         super (fila,columna);
-        logo = "🥚";
+        logo = "N";
         soles = 150;
         hp = 20;
         danyo = 0;

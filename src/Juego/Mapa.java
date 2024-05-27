@@ -7,6 +7,8 @@ import Zombies.*;
 import Plantas.Lanzaguisantes;
 import java.io.*;
 import java.io.FileWriter;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -52,7 +54,7 @@ public class Mapa {
      * Imprime el mapa
      */
     public void imprimirMapa() {
-        System.out.println("═══════════════════════════");
+        System.out.println("\u2550" + "\u2550" + "\u2550" +"\u2550"+ "\u2550" + "\u2550" + "\u2550" +"\u2550" +"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550");
         for (int i = 0; i < getFilas(); i++) {
             for (int j = 0; j < getColumnas(); j++) {
                 boolean esPlanta = false;
@@ -105,7 +107,7 @@ public class Mapa {
                 }
             }
             System.out.println();
-            System.out.println("═══════════════════════════");
+            System.out.println("\u2550" + "\u2550" + "\u2550" +"\u2550"+ "\u2550" + "\u2550" + "\u2550" +"\u2550" +"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550"+"\u2550");
         }
     }
     /**
@@ -322,7 +324,7 @@ public class Mapa {
      * Añade una planta al mapa en la posicion que se elija
      * @param nuevo La nueva planta a añadir
      */
-    public void añadirPlanta (Plantas nuevo){
+    public void anyadirPlanta(Plantas nuevo){
         boolean existe = false;
         for (int i = 0; i < plantas.size() && !existe; i++){
             Plantas actualplanta = plantas.get(i);
@@ -387,7 +389,7 @@ public class Mapa {
                         }
                         else {
                             this.soles = this.soles - lanza.getSoles();
-                            añadirPlanta(lanza);
+                            anyadirPlanta(lanza);
                         }
                     } else if (opcion2 == 2) {
                         Plantas girasol = new Girasol(fila,columna,turno);
@@ -396,7 +398,7 @@ public class Mapa {
                         }
                         else {
                             this.soles = this.soles - girasol.getSoles();
-                            añadirPlanta(girasol);
+                            anyadirPlanta(girasol);
                         }
                     }else if (opcion2 == 3){
                         Plantas nuez = new Nuez(fila,columna);
@@ -405,7 +407,7 @@ public class Mapa {
                         }
                         else {
                             this.soles = this.soles - nuez.getSoles();
-                            añadirPlanta(nuez);
+                            anyadirPlanta(nuez);
                         }
                     } else if (opcion2 == 0){
 
@@ -481,12 +483,14 @@ public class Mapa {
      * Guarda las estadísticas del juego en un archivo de texto
      */
     public void estadisticasResultados() {
+        LocalDateTime tiempo = LocalDateTime.now();
         try (FileWriter escritor = new FileWriter("estadistica.txt", true)) {
             escritor.write("Nombre: " + nombre);
             escritor.write(", Zombies matados: " + killszombies);
             escritor.write(", Plantas plantadas: " + plantasplantadas);
             escritor.write(", Plantas muertas: " + killplantas);
             escritor.write(", Turnos durados: " + turno);
+            escritor.write(", Fecha :" + LocalDate.now() + "a las " + LocalDateTime.now().getHour() + ":" + LocalDateTime.now().getMinute());
             escritor.write(System.lineSeparator());
             System.out.println("Resultados guardados correctamente");
         } catch (IOException e) {

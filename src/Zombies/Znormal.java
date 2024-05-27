@@ -8,8 +8,8 @@ public class Znormal extends Zombies {
      */
     public Znormal (int fila,int columna){
         super (fila,columna);
-        logo = "️🧟‍♂️";
+        logo = "Z";
         hp = 3;
-        daño = 2;
+        danyo = 2;
     }
 }

@@ -8,7 +8,7 @@ public class Lanzaguisantes extends Plantas {
      */
     public Lanzaguisantes(int fila,int columna){
         super (fila,columna);
-        logo = "🌱";
+        logo = "L";
         soles = 100;
         hp = 5;
         danyo = 1;

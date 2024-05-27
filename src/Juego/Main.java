@@ -72,7 +72,7 @@ public class Main {
                     System.out.println("Siempre puedes salir de un menú seleccionando la opción 'SALIR' o ingresando [0].");
                     System.out.println("Habrá distintas dificultades que podrás elegir antes de empezar el juego, donde cada una tendrá una probabilidad mayor de aparición de zombies más difíciles.");
                     System.out.println("A continuación se muestran las probabilidades de zombies por nivel:");
-                    System.out.println("FÁCIL:");
+                    System.out.println("FACIL:");
                     System.out.println("- Probabilidades:");
                     System.out.println("  * Caracubo: 60%");
                     System.out.println("  * Caracono: 30%");
@@ -84,7 +84,7 @@ public class Main {
                     System.out.println("  * Caracono: 33,33%");
                     System.out.println("  * Zombie normal: 33,33%");
                     System.out.println(espaciado);
-                    System.out.println("DIFÍCIL:");
+                    System.out.println("DIFICIL:");
                     System.out.println("- Probabilidades:");
                     System.out.println("  * Caracubo: 60%");
                     System.out.println("  * Caracono: 30%");

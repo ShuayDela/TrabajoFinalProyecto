@@ -11,7 +11,7 @@ public class Girasol extends Plantas {
         super (fila,columna);
         this.turnoPlantado = turnoPlantado;
         hp = 2;
-        logo = "🌻";
+        logo = "G";
         danyo = 0;
     }
     /**

@@ -8,8 +8,8 @@ public class Caracubo extends Zombies {
      */
     public Caracubo (int fila,int columna){
         super (fila,columna);
-        logo = "️🗑";
+        logo = "U";
         hp = 7;
-        daño = 3;
+        danyo = 3;
     }
 }
