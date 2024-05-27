@@ -2,31 +2,38 @@ package Juego;
 import Plantas.*;
 import Utilidades.Util;
 import Juego.*;
+
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Main {
     public static void main (String [] args){
         Scanner teclado = new Scanner(System.in);
-        boolean finalizarjuego = false;
+        String nombre ;
+        System.out.println("Elige tu nombre como jugador");
+        nombre = teclado.nextLine();
         System.out.println("¡ BIENVENIDO A PLANTS VS ZOMBIES !");
         System.out.println("Iniciando menu");
         System.out.println();
-        System.out.println();
+        boolean finalizarMenu = false;
         do{
             Mapa mapa = new Mapa();
             System.out.println("¿Que quieres hacer?");
             System.out.println("1-Jugar al juego");
-            System.out.println("2-Cargar un juego");
-            System.out.println("3-Cambiar de dificultad");
+            System.out.println("2-Ver estadisticas");
+            System.out.println("3-Cargas partida");
             System.out.println("4-Manual");
-            System.out.println("5-Ver registro de puntos de juego");
             int opcion = Util.Leernumero(teclado,1,5);
             if (opcion == 1)
             {
+                mapa.setNombre(nombre);
+                boolean finalizarjuego = false;
+                mapa.seleccionarDificultad();
                 do {
-                    mapa.imprimirMapa();
                     mapa.Menu(teclado);
+                    finalizarjuego = mapa.isFinalizarjuego();
                 } while (!finalizarjuego);
+                finalizarMenu = false;
             }
             if (opcion == 2){
 
@@ -47,7 +54,8 @@ public class Main {
                     System.out.println("Medio || Numero : 100 || Probabilidades - Caracubo 33,33% - Caracono 33,33% - Zombie normal 33,33%");
                     System.out.println("Dificil || Numero : 200 || Probabilidades - Caracubo 60% - Caracono 30% - Zombie normal 10%");
                     System.out.println("Personalizado || Numero : El que quieras (si pones 0 es ilimitado) || Probabilidades - Lo que elijas");
-                    System.out.println("De momento esto es una demo de un desarrollador humilde y en progreso de mejorar sus habilidades (una buena nota alberto porfa t-t)");
+                    System.out.println("De momento esto es una demo de un desarrollador humilde");
+                    finalizarMenu = true;
                 }
                 if (opcion4 == 2){
                     System.out.println("EL LANZAGUISTANTES");
@@ -57,9 +65,9 @@ public class Main {
 
             }
             if (opcion == 5){
-
+                System.out.println("Saliendo del juego , Gracias por jugar");
             }
-        }
+        } while (finalizarMenu);
 
     }
 }

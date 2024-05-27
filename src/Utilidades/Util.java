@@ -38,9 +38,9 @@ public class Util {
             if (partesdelnumero.length == 2) {
                 try {
                     numeros = new int [2];
-                    numeros[0] = Integer.parseInt(partesdelnumero[0].trim()) - 1;
-                    numeros[1] = Integer.parseInt(partesdelnumero[1].trim()) - 1;
-                    if (numeros[0] >= 0 && numeros[0] < 5 && numeros[1] >= 0 && numeros[1] < 13) {
+                    numeros[0] = Integer.parseInt(partesdelnumero[0].trim()) - 1 ;
+                    numeros[1] = Integer.parseInt(partesdelnumero[1].trim()) ;
+                    if (numeros[0] >= 0 && numeros[0] < 5 && numeros[1] >= 1 && numeros[1] < 13) {
                         numerocorrecto = true;
                     }
                     else{
@@ -55,16 +55,6 @@ public class Util {
             }
         } while (!numerocorrecto);
         return numeros;
-    }
-    public static int LeernumeroFila (Scanner scanner){
-        System.out.println("Elige la fila que quieras: ");
-        int fila = Leernumero(scanner,1,5);
-        return fila -1 ;
-    }
-    public static int Leernumerocolumna (Scanner scanner){
-        System.out.println("Elige la columna que quieras: ");
-        int columna = Leernumero(scanner,1,9);
-        return columna - 1;
     }
     public static int obtenerEnteroAleatorio(int min, int max) {
         int aleatorioDefinitivo = (int) (Math.random() * (max - min + 1) + min);
