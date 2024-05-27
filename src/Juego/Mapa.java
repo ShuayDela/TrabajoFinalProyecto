@@ -217,7 +217,7 @@ public class Mapa {
                  zombi = new Znormal(numeroaleatorio,getColumnas());
             }
             if (ruleta >= 61 && ruleta <= 90){
-                 zombi = new CaraCono(numeroaleatorio,getColumnas());
+                 zombi = new Caracono(numeroaleatorio,getColumnas());
             }
             if (ruleta >= 91 && ruleta <= 100 ){
                  zombi = new Caracubo(numeroaleatorio,getColumnas());
@@ -227,7 +227,7 @@ public class Mapa {
                  zombi = new Znormal(numeroaleatorio,getColumnas());
             }
             if (ruleta >= 36 && ruleta <= 70){
-                 zombi = new CaraCono(numeroaleatorio,getColumnas());
+                 zombi = new Caracono(numeroaleatorio,getColumnas());
             }
             if (ruleta >= 71 && ruleta <= 100 ){
                  zombi = new Caracubo(numeroaleatorio,getColumnas());
@@ -238,7 +238,7 @@ public class Mapa {
                  zombi = new Znormal(numeroaleatorio,getColumnas());
             }
             if (ruleta >= 21 && ruleta <= 50){
-                 zombi = new CaraCono(numeroaleatorio,getColumnas());
+                 zombi = new Caracono(numeroaleatorio,getColumnas());
             }
             if (ruleta >= 51 && ruleta <= 100 ){
                  zombi = new Caracubo(numeroaleatorio,getColumnas());
@@ -373,7 +373,7 @@ public class Mapa {
                 System.out.println("2- Girasol (50 soles)");
                 System.out.println("3- Nuez (150 soles)");
                 int opcion2 = Util.Leernumero(scanner,0,3);
-                if (opcion2 ==1  || opcion2 == 2 ){
+                if (opcion2 ==1  || opcion2 == 2 || opcion2 == 3 ){
                     int [] filacolumna = Util.LeerNumeroFilaColumna(scanner);
                     if (filacolumna == null){
                         continue;

@@ -1,13 +1,16 @@
 package Plantas;
-import Zombies.Zombies;
-public class Lanzaguisantes extends Plantas {
 
+public class Lanzaguisantes extends Plantas {
+    /**
+     * Constructor de la clase Lanzaguisantes hereda de plantas
+     * @param fila posicionamiento
+     * @param columna posicionamiento
+     */
     public Lanzaguisantes(int fila,int columna){
         super (fila,columna);
         logo = "🌱";
         soles = 100;
         hp = 5;
-        daño = 1;
-        nombre = "Lanzaguisantes";
+        danyo = 1;
     }
 }

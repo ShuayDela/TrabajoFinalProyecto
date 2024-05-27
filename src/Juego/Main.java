@@ -34,6 +34,7 @@ public class Main {
             System.out.println("2-Ver estadísticas");
             System.out.println("3-Manual");
             System.out.println("4-Cambiar nombre");
+            System.out.println("5-Salir");
 
             // leer la opcion
             int opcion = Util.Leernumero(teclado, 1, 5);
@@ -125,6 +126,9 @@ public class Main {
                 nombre = teclado.nextLine();
                 mapa.setNombre(nombre);
                 System.out.println(espaciado);
+            } else if (opcion == 5){
+                System.out.println("Gracias por jugar");
+                break;
             }
         } while (!finalizarMenu);
     }

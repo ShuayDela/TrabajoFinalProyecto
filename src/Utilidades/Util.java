@@ -1,8 +1,19 @@
 package Utilidades;
 
 import java.util.Scanner;
-
+/**
+ * La clase Util proporciona métodos de utilidad para realizar operaciones comunes.
+ * Incluye métodos para leer números desde la entrada estándar, obtener un número aleatorio
+ * dentro de un rango específico, y leer una posición de fila y columna.
+ */
 public class Util {
+    /**
+     * Lee un número entero desde la entrada estándar dentro de un rango especificado.
+     * @param scanner  para leer la entrada del usuario
+     * @param inicio El valor mínimo aceptado para el número
+     * @param fina El valor máximo aceptado para el número
+     * @return Devuelve el numero que ha elegido el usuario entre esos de los parametros
+     */
     public static int Leernumero(Scanner scanner,int inicio, int fina) {
         int numero = 0;
         boolean numerodistinto = false;
@@ -12,7 +23,7 @@ public class Util {
                 if (numero <= fina && numero >= inicio) {
                     numerodistinto = false;
                 } else {
-                    System.out.println("Error tienes que escribir un numero del " +inicio +   "al " + fina);
+                    System.out.println("Error tienes que escribir un numero del " +inicio +   " al " + fina);
                     numerodistinto = true;
                 }
 
@@ -25,6 +36,11 @@ public class Util {
             } while (numerodistinto);
         return numero;
     }
+    /**
+     * Lee una posición de fila y columna desde la entrada estándar
+     * @param scanner El objeto Scanner utilizado para leer la entrada del usuario
+     * @return Devuelve una array con dos numeros el de columna [1] y el de fila [0]
+     */
     public static int [] LeerNumeroFilaColumna (Scanner scanner){
         boolean numerocorrecto = false;
         int[] numeros = null;
@@ -56,6 +72,12 @@ public class Util {
         } while (!numerocorrecto);
         return numeros;
     }
+    /**
+     * Crea un número entero aleatorio dentro de un rango especificado
+     * @param min El valor mínimo
+     * @param max El valor máximo
+     * @return El número entero aleatorio que se haya creado
+     */
     public static int obtenerEnteroAleatorio(int min, int max) {
         int aleatorioDefinitivo = (int) (Math.random() * (max - min + 1) + min);
         return aleatorioDefinitivo;
