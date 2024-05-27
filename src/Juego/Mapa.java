@@ -18,14 +18,14 @@ public class Mapa {
     private int plantasplantadas; // contador de plantas plantadas
     private int killplantas; //contador de plantas muertas
     private String nombre; //el nombre del jugador
-    public int soles; //los soles en el juego
-    public int filas; // el numero de filas que tendra el mapa
-    public int columnas; // el numero de columnas que tendra el mapa
-    public boolean finalizarjuego; // booleano para saber si el juego ya ha terminado
-    public ArrayList <CortaCesped> cortaCespeds; //una lista de cortacesped (son 5 , 1 por cada fila)
-    public ArrayList<Plantas> plantas ; // lista de plantas en el juego
-    public ArrayList<Zombies> zombies; // lista de zombies en el juego
-    public int turno; // el numero de turnos en el que esta el jugador
+    private int soles; //los soles en el juego
+    private int filas; // el numero de filas que tendra el mapa
+    private int columnas; // el numero de columnas que tendra el mapa
+    private boolean finalizarjuego; // booleano para saber si el juego ya ha terminado
+    private ArrayList <CortaCesped> cortaCespeds; //una lista de cortacesped (son 5 , 1 por cada fila)
+    private ArrayList<Plantas> plantas ; // lista de plantas en el juego
+    private ArrayList<Zombies> zombies; // lista de zombies en el juego
+    private int turno; // el numero de turnos en el que esta el jugador
     public Dificultad dificultad; // La dificultad del que elija el jugador
 
     /**

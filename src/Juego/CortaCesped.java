@@ -4,7 +4,7 @@ import Zombies.*;
 import java.util.ArrayList;
 
 public class CortaCesped {
-    boolean activado; // Para saber si el cortacesped ha sido activado o no
+    private boolean activado; // Para saber si el cortacesped ha sido activado o no
     private int columna; //Posicionamiento
     private int fila; //Posicionamientop
     /**
