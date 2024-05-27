@@ -11,14 +11,6 @@ public abstract class Zombies {
     protected int daño;
     protected String logomuerto;
 
-    public String getLogomuerto() {
-        return logomuerto;
-    }
-
-    public void setLogomuerto(String logomuerto) {
-        this.logomuerto = logomuerto;
-    }
-
     public Zombies (int fila, int columna){
         this.fila = fila;
         this.columna = columna;
@@ -33,7 +25,13 @@ public abstract class Zombies {
             }
         }
     }
+    public String getLogomuerto() {
+        return logomuerto;
+    }
 
+    public void setLogomuerto(String logomuerto) {
+        this.logomuerto = logomuerto;
+    }
     public int getFila() {
         return fila;
     }

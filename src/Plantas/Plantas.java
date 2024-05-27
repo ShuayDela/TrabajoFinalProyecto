@@ -15,6 +15,12 @@ public abstract class Plantas {
     protected int daño;
     protected String logomuerto;
 
+    public Plantas (int fila, int columna){
+        this.fila = fila;
+        this.columna = columna;
+        vivo = true;
+        logomuerto = "❎";
+    }
     public String getLogomuerto() {
         return logomuerto;
     }
@@ -23,12 +29,6 @@ public abstract class Plantas {
         this.logomuerto = logomuerto;
     }
 
-    public Plantas (int fila, int columna){
-        this.fila = fila;
-        this.columna = columna;
-        vivo = true;
-        logomuerto = "❎";
-    }
     public int getFila() {
         return fila;
     }
