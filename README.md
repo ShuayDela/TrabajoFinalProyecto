@@ -36,5 +36,5 @@ Hay 3 dificultades
 ## Investigacion
 Hice investigacion sobre todo en los metodos para leer y escribir ficheros para las estadisticas ya que no lo dimos en clase por lo demas generalmente he intentado usar todo lo dado en clase para poner a prueba mis conocimientos este año.
 
-##Final
+## Final
 Bueno este es mi proyecto humilde espero que disfruten de esta demo ( ya que realmente solo hay 3 clases de zombies y plantas ) de Plantas Vs Zombies
